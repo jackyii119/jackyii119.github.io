@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -39,7 +40,7 @@
             color: #4f8cff;
             margin-bottom: 16px;
         }
-        video {
+        .step-gif {
             width: 100%;
             max-width: 520px;
             border-radius: 10px;
@@ -52,6 +53,46 @@
             color: #444;
             min-height: 32px;
         }
+        .timer-section {
+            margin: 40px 0;
+            padding: 32px 24px;
+            background: #f0f6ff;
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(79,140,255,0.07);
+            text-align: center;
+        }
+        .timer-title {
+            font-size: 20px;
+            color: #4f8cff;
+            margin-bottom: 18px;
+        }
+        .timer-display {
+            font-size: 36px;
+            font-weight: bold;
+            color: #2d3a4b;
+            margin-bottom: 18px;
+            letter-spacing: 2px;
+        }
+        .timer-btn {
+            background: #4f8cff;
+            color: #fff;
+            border: none;
+            padding: 8px 22px;
+            border-radius: 8px;
+            font-size: 16px;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .timer-btn:disabled {
+            background: #b3c6e0;
+            cursor: not-allowed;
+        }
+        .timer-finished {
+            color: #e74c3c;
+            font-size: 18px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
@@ -59,44 +100,155 @@
         <h1>医疗设备操作说明书</h1>
         <div class="step-section">
             <div class="step-title">步骤1</div>
-            <video controls>
-                <source src="step1.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-            <div class="desc">这是第1步的操作说明。请根据视频演示进行操作。</div>
+            <img class="step-gif" src="step1.gif" alt="步骤1演示">
+            <div class="desc">这是第1步的操作说明。请根据动图演示进行操作。</div>
         </div>
         <div class="step-section">
             <div class="step-title">步骤2</div>
-            <video controls>
-                <source src="step2.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-            <div class="desc">这是第2步的操作说明。请根据视频演示进行操作。</div>
+            <img class="step-gif" src="step2.gif" alt="步骤2演示">
+            <div class="desc">这是第2步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <!-- 5分钟计时器模块 -->
+        <div class="timer-section">
+            <div class="timer-title">5分钟计时器</div>
+            <div class="timer-display" id="timer5-display">05:00</div>
+            <button class="timer-btn" onclick="startTimer('timer5')" id="timer5-start">开始</button>
+            <button class="timer-btn" onclick="pauseTimer('timer5')" id="timer5-pause" disabled>暂停</button>
+            <button class="timer-btn" onclick="resetTimer('timer5')">重置</button>
+            <div class="timer-finished" id="timer5-finished" style="display:none;">时间到！</div>
         </div>
         <div class="step-section">
             <div class="step-title">步骤3</div>
-            <video controls>
-                <source src="step3.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-            <div class="desc">这是第3步的操作说明。请根据视频演示进行操作。</div>
+            <img class="step-gif" src="step3.gif" alt="步骤3演示">
+            <div class="desc">这是第3步的操作说明。请根据动图演示进行操作。</div>
         </div>
         <div class="step-section">
             <div class="step-title">步骤4</div>
-            <video controls>
-                <source src="step4.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-            <div class="desc">这是第4步的操作说明。请根据视频演示进行操作。</div>
+            <img class="step-gif" src="step4.gif" alt="步骤4演示">
+            <div class="desc">这是第4步的操作说明。请根据动图演示进行操作。</div>
         </div>
         <div class="step-section">
             <div class="step-title">步骤5</div>
-            <video controls>
-                <source src="step5.mp4" type="video/mp4">
-                您的浏览器不支持视频播放。
-            </video>
-            <div class="desc">这是第5步的操作说明。请根据视频演示进行操作。</div>
+            <img class="step-gif" src="step5.gif" alt="步骤5演示">
+            <div class="desc">这是第5步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <div class="step-section">
+            <div class="step-title">步骤6</div>
+            <img class="step-gif" src="step6.gif" alt="步骤6演示">
+            <div class="desc">这是第6步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <!-- 90秒计时器模块 -->
+        <div class="timer-section">
+            <div class="timer-title">90秒计时器</div>
+            <div class="timer-display" id="timer1-display">01:30</div>
+            <button class="timer-btn" onclick="startTimer('timer1')" id="timer1-start">开始</button>
+            <button class="timer-btn" onclick="pauseTimer('timer1')" id="timer1-pause" disabled>暂停</button>
+            <button class="timer-btn" onclick="resetTimer('timer1')">重置</button>
+            <div class="timer-finished" id="timer1-finished" style="display:none;">时间到！</div>
+        </div>
+        <div class="step-section">
+            <div class="step-title">步骤7</div>
+            <img class="step-gif" src="step7.gif" alt="步骤7演示">
+            <div class="desc">这是第7步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <div class="step-section">
+            <div class="step-title">步骤8</div>
+            <img class="step-gif" src="step8.gif" alt="步骤8演示">
+            <div class="desc">这是第8步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <div class="step-section">
+            <div class="step-title">步骤9</div>
+            <img class="step-gif" src="step9.gif" alt="步骤9演示">
+            <div class="desc">这是第9步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <div class="step-section">
+            <div class="step-title">步骤10</div>
+            <img class="step-gif" src="step10.gif" alt="步骤10演示">
+            <div class="desc">这是第10步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <div class="step-section">
+            <div class="step-title">步骤11</div>
+            <img class="step-gif" src="step11.gif" alt="步骤11演示">
+            <div class="desc">这是第11步的操作说明。请根据动图演示进行操作。</div>
+        </div>
+        <div class="step-section">
+            <div class="step-title">步骤12</div>
+            <img class="step-gif" src="step12.gif" alt="步骤12演示">
+            <div class="desc">这是第12步的操作说明。请根据动图演示进行操作。</div>
         </div>
     </div>
+    <script>
+        // 通用计时器逻辑
+        const timers = {
+            timer5: {
+                duration: 5 * 60, // 5分钟
+                remaining: 5 * 60,
+                interval: null,
+                running: false,
+                displayId: 'timer5-display',
+                finishedId: 'timer5-finished',
+                startBtn: 'timer5-start',
+                pauseBtn: 'timer5-pause',
+            },
+            timer1: {
+                duration: 90, // 90秒
+                remaining: 90,
+                interval: null,
+                running: false,
+                displayId: 'timer1-display',
+                finishedId: 'timer1-finished',
+                startBtn: 'timer1-start',
+                pauseBtn: 'timer1-pause',
+            }
+        };
+
+        function updateTimerDisplay(timerKey) {
+            const timer = timers[timerKey];
+            const min = String(Math.floor(timer.remaining / 60)).padStart(2, '0');
+            const sec = String(timer.remaining % 60).padStart(2, '0');
+            document.getElementById(timer.displayId).textContent = `${min}:${sec}`;
+        }
+
+        function startTimer(timerKey) {
+            const timer = timers[timerKey];
+            if (timer.running) return;
+            timer.running = true;
+            document.getElementById(timer.startBtn).disabled = true;
+            document.getElementById(timer.pauseBtn).disabled = false;
+            document.getElementById(timer.finishedId).style.display = 'none';
+            timer.interval = setInterval(() => {
+                if (timer.remaining > 0) {
+                    timer.remaining--;
+                    updateTimerDisplay(timerKey);
+                } else {
+                    clearInterval(timer.interval);
+                    timer.running = false;
+                    document.getElementById(timer.startBtn).disabled = true;
+                    document.getElementById(timer.pauseBtn).disabled = true;
+                    document.getElementById(timer.finishedId).style.display = 'block';
+                }
+            }, 1000);
+        }
+
+        function pauseTimer(timerKey) {
+            const timer = timers[timerKey];
+            if (!timer.running) return;
+            timer.running = false;
+            clearInterval(timer.interval);
+            document.getElementById(timer.startBtn).disabled = false;
+            document.getElementById(timer.pauseBtn).disabled = true;
+        }
+
+        function resetTimer(timerKey) {
+            const timer = timers[timerKey];
+            timer.remaining = timer.duration;
+            clearInterval(timer.interval);
+            timer.running = false;
+            updateTimerDisplay(timerKey);
+            document.getElementById(timer.startBtn).disabled = false;
+            document.getElementById(timer.pauseBtn).disabled = true;
+            document.getElementById(timer.finishedId).style.display = 'none';
+        }
+    </script>
 </body>
 </html> 
