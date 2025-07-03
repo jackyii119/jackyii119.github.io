@@ -93,88 +93,97 @@
             font-size: 18px;
             margin-top: 10px;
         }
+        .big-toggle-btn {
+            font-size: 22px;
+            padding: 16px 40px;
+            border-radius: 12px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- 切换按钮 -->
+        <div style="text-align:right; margin-bottom: 16px;">
+            <button id="toggle-mode-btn" class="timer-btn big-toggle-btn" onclick="toggleMode()">切换为视频版</button>
+        </div>
         <h1>医疗设备操作说明书</h1>
+        <!-- 步骤1：2个GIF和说明 -->
         <div class="step-section">
-            <div class="step-title">步骤1</div>
-            <img class="step-gif" src="step1.gif" alt="步骤1演示">
-            <div class="desc">这是第1步的操作说明。请根据动图演示进行操作。</div>
+            <div class="step-title">步骤1：打开包装</div>
+            <img class="step-gif" src="step1_1.jpg" alt="步骤1-1演示">
+            <div class="desc">打开包装，检查盒内物品
+                提前撕开酒精棉和创口贴</div>
+            <img class="step-gif" src="step1_2.gif" alt="步骤1-2演示">
+            <div class="desc">清洗双手或佩戴一次性医用手套</div>
         </div>
+        <!-- 步骤2：2个GIF和说明 -->
         <div class="step-section">
-            <div class="step-title">步骤2</div>
-            <img class="step-gif" src="step2.gif" alt="步骤2演示">
-            <div class="desc">这是第2步的操作说明。请根据动图演示进行操作。</div>
+            <div class="step-title">步骤2:热敷</div>
+            <img class="step-gif" src="step2_1.gif" alt="步骤2-1演示">
+            <div class="desc">轻掰金属片，触发加热</div>
+            <img class="step-gif" src="step2_2.gif" alt="步骤2-2演示">
+            <div class="desc">热敷5分钟至皮肤微微泛红,如热敷过程中感觉太烫，可暂停几秒再继续热敷</div>
         </div>
-        <!-- 5分钟计时器模块 -->
+        <!-- 热敷5分钟计时器 -->
         <div class="timer-section">
-            <div class="timer-title">5分钟计时器</div>
+            <div class="timer-title">热敷5分钟计时器</div>
             <div class="timer-display" id="timer5-display">05:00</div>
             <button class="timer-btn" onclick="startTimer('timer5')" id="timer5-start">开始</button>
             <button class="timer-btn" onclick="pauseTimer('timer5')" id="timer5-pause" disabled>暂停</button>
             <button class="timer-btn" onclick="resetTimer('timer5')">重置</button>
             <div class="timer-finished" id="timer5-finished" style="display:none;">时间到！</div>
         </div>
+        <!-- 步骤3：单个GIF和说明 -->
         <div class="step-section">
-            <div class="step-title">步骤3</div>
+            <div class="step-title">步骤3：消毒</div>
             <img class="step-gif" src="step3.gif" alt="步骤3演示">
-            <div class="desc">这是第3步的操作说明。请根据动图演示进行操作。</div>
+            <div class="desc">酒精棉片轻轻擦拭清洁,等待酒精挥发完全</div>
         </div>
+        <!-- 步骤4：3个GIF和说明，90秒计时器插入第二小步后 -->
         <div class="step-section">
-            <div class="step-title">步骤4</div>
-            <img class="step-gif" src="step4.gif" alt="步骤4演示">
-            <div class="desc">这是第4步的操作说明。请根据动图演示进行操作。</div>
+            <div class="step-title">步骤4：开始采血</div>
+            <img class="step-gif" src="step4_1.gif" alt="步骤4-1演示">
+            <div class="desc">撕开顶部和底部胶贴</div>
+            <img class="step-gif" src="step4_2.gif" alt="步骤4-2演示">
+            <div class="desc">将其紧贴上臂，管槽位置朝下</div>
+            <!-- 采血90秒计时器 -->
+            <img class="step-gif" src="step4_3.gif" alt="步骤4-3演示">
+            <div class="desc">采血管垂直插入管槽，针刺破胶塞声即表示采血开始，计时90S</div>
+            <div class="timer-section">
+                <div class="timer-title">采血90秒计时</div>
+                <div class="timer-display" id="timer1-display">01:30</div>
+                <button class="timer-btn" onclick="startTimer('timer1')" id="timer1-start">开始</button>
+                <button class="timer-btn" onclick="pauseTimer('timer1')" id="timer1-pause" disabled>暂停</button>
+                <button class="timer-btn" onclick="resetTimer('timer1')">重置</button>
+                <div class="timer-finished" id="timer1-finished" style="display:none;">时间到！</div>
+            </div>
         </div>
+        <!-- 步骤5：2个GIF和说明 -->
         <div class="step-section">
-            <div class="step-title">步骤5</div>
-            <img class="step-gif" src="step5.gif" alt="步骤5演示">
-            <div class="desc">这是第5步的操作说明。请根据动图演示进行操作。</div>
+            <div class="step-title">步骤5：停止采血</div>
+            <img class="step-gif" src="step5_1.gif" alt="步骤5-1演示">
+            <div class="desc">水平抬起手臂观察血液采集量，
+                90秒或血量到达刻度线后停止采血</div>
+            <img class="step-gif" src="step5_2.gif" alt="步骤5-2演示">
+            <div class="desc">取下采血器</div>
         </div>
+        <!-- 步骤6：2个GIF和说明 -->
         <div class="step-section">
-            <div class="step-title">步骤6</div>
-            <img class="step-gif" src="step6.gif" alt="步骤6演示">
-            <div class="desc">这是第6步的操作说明。请根据动图演示进行操作。</div>
+            <div class="step-title">步骤6：取出采血管</div>
+            <img class="step-gif" src="step6_1.gif" alt="步骤6-1演示">
+            <div class="desc">垂直向下取出采血管</div>
+            <img class="step-gif" src="step6_2.gif" alt="步骤6-2演示">
+            <div class="desc">先胶塞朝下摇晃采血管，使血液与添加剂充分混合</div>
         </div>
-        <!-- 90秒计时器模块 -->
-        <div class="timer-section">
-            <div class="timer-title">90秒计时器</div>
-            <div class="timer-display" id="timer1-display">01:30</div>
-            <button class="timer-btn" onclick="startTimer('timer1')" id="timer1-start">开始</button>
-            <button class="timer-btn" onclick="pauseTimer('timer1')" id="timer1-pause" disabled>暂停</button>
-            <button class="timer-btn" onclick="resetTimer('timer1')">重置</button>
-            <div class="timer-finished" id="timer1-finished" style="display:none;">时间到！</div>
-        </div>
+        <!-- 步骤7：3个GIF和说明 -->
         <div class="step-section">
-            <div class="step-title">步骤7</div>
-            <img class="step-gif" src="step7.gif" alt="步骤7演示">
-            <div class="desc">这是第7步的操作说明。请根据动图演示进行操作。</div>
-        </div>
-        <div class="step-section">
-            <div class="step-title">步骤8</div>
-            <img class="step-gif" src="step8.gif" alt="步骤8演示">
-            <div class="desc">这是第8步的操作说明。请根据动图演示进行操作。</div>
-        </div>
-        <div class="step-section">
-            <div class="step-title">步骤9</div>
-            <img class="step-gif" src="step9.gif" alt="步骤9演示">
-            <div class="desc">这是第9步的操作说明。请根据动图演示进行操作。</div>
-        </div>
-        <div class="step-section">
-            <div class="step-title">步骤10</div>
-            <img class="step-gif" src="step10.gif" alt="步骤10演示">
-            <div class="desc">这是第10步的操作说明。请根据动图演示进行操作。</div>
-        </div>
-        <div class="step-section">
-            <div class="step-title">步骤11</div>
-            <img class="step-gif" src="step11.gif" alt="步骤11演示">
-            <div class="desc">这是第11步的操作说明。请根据动图演示进行操作。</div>
-        </div>
-        <div class="step-section">
-            <div class="step-title">步骤12</div>
-            <img class="step-gif" src="step12.gif" alt="步骤12演示">
-            <div class="desc">这是第12步的操作说明。请根据动图演示进行操作。</div>
+            <div class="step-title">步骤7：后处理</div>
+            <img class="step-gif" src="step7_1.gif" alt="步骤7-1演示">
+            <div class="desc">纱布擦拭采血位置，贴上创口贴</div>
+            <img class="step-gif" src="step7_2.gif" alt="步骤7-2演示">
+            <div class="desc">将所有耗材妥善装入医疗包装废物袋</div>
+            <img class="step-gif" src="step7_3.gif" alt="步骤7-3演示">
+            <div class="desc">将血样放入运输袋，转运或寄回至检测实验室</div>
         </div>
     </div>
     <script>
@@ -248,6 +257,57 @@
             document.getElementById(timer.startBtn).disabled = false;
             document.getElementById(timer.pauseBtn).disabled = true;
             document.getElementById(timer.finishedId).style.display = 'none';
+        }
+
+        // GIF/视频切换逻辑（支持每步多个媒体）
+        let isVideoMode = false;
+        function toggleMode() {
+            isVideoMode = !isVideoMode;
+            const btn = document.getElementById('toggle-mode-btn');
+            btn.textContent = isVideoMode ? '切换为GIF版' : '切换为视频版';
+            // 查找所有媒体元素
+            const allStepSections = document.querySelectorAll('.step-section');
+            allStepSections.forEach(section => {
+                // 查找所有step-gif和step-video
+                section.querySelectorAll('.step-gif, .step-video').forEach(media => {
+                    let src = media.getAttribute('src');
+                    if (!src) return;
+                    if (isVideoMode) {
+                        // 只处理.gif结尾的IMG
+                        if (media.tagName === 'IMG' && /\.gif$/i.test(src)) {
+                            let base = src.replace(/\.gif$/i, '');
+                            const video = document.createElement('video');
+                            video.className = 'step-video';
+                            video.setAttribute('controls', '');
+                            video.setAttribute('src', base + '.mp4');
+                            video.setAttribute('alt', media.getAttribute('alt') || '');
+                            video.style.width = '100%';
+                            video.style.maxWidth = '520px';
+                            video.style.borderRadius = '10px';
+                            video.style.background = '#000';
+                            video.style.display = 'block';
+                            video.style.marginBottom = '16px';
+                            media.parentNode.replaceChild(video, media);
+                        }
+                    } else {
+                        // 只处理step-video（即mp4视频）
+                        if (media.tagName === 'VIDEO') {
+                            let base = src.replace(/\.mp4$/i, '');
+                            const img = document.createElement('img');
+                            img.className = 'step-gif';
+                            img.setAttribute('src', base + '.gif');
+                            img.setAttribute('alt', media.getAttribute('alt') || '');
+                            img.style.width = '100%';
+                            img.style.maxWidth = '520px';
+                            img.style.borderRadius = '10px';
+                            img.style.background = '#000';
+                            img.style.display = 'block';
+                            img.style.marginBottom = '16px';
+                            media.parentNode.replaceChild(img, media);
+                        }
+                    }
+                });
+            });
         }
     </script>
 </body>
