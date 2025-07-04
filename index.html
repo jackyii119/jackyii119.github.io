@@ -17,18 +17,19 @@
             padding: 0px;
         }
         .container {
-            max-width: 90%;
-            margin: 20px auto;
+            max-width: none;
+            width: 100%;
+            margin: 0 auto;
             background: #fff;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0,0,0,0.08);
-            padding: 20px 15px 15px 15px;
+            border-radius: 0;
+            box-shadow: none;
+            padding: 0;
             transition: all 0.3s ease;
         }
         @media (max-width: 768px) {
             .container {
-                margin: 20px 15px;
-                padding: 24px 15px 15px 15px;
+                margin: 10px 5px;
+                padding: 10px;
             }
             .step-title {
                 font-size: 20px;
@@ -78,9 +79,9 @@
             margin-bottom: 32px;
         }
         .step-section {
-            margin-bottom: 60px;
+            margin-bottom: 20px;
             border-bottom: 2px solid #ccd5e0;
-            padding-bottom: 32px;
+            padding-bottom: 10px;
             transition: background-color 0.3s ease;
         }
         .step-section:hover {
@@ -103,11 +104,11 @@
         .step-gif {
             width: 100%;
             max-width: 100%;
-            border-radius: 10px;
+            border-radius: 0;
             background: #000;
             display: block;
             margin: 0;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+            box-shadow: none;
             transition: transform 0.2s ease;
         }
         .step-gif:hover {
@@ -116,13 +117,13 @@
         .desc {
             font-size: 18px;
             color: #444;
-            min-height: 32px;
+            min-height: 0;
         }
         .sub-step {
-            margin-bottom: 25px;
-            padding-bottom: 15px;
+            margin-bottom: 10px;
+            padding-bottom: 5px;
             border-bottom: 1px dashed #e0e6ef;
-            padding-left: 12px;
+            padding-left: 0;
             position: relative;
         }
         .sub-step::before {
@@ -435,11 +436,11 @@
                             video.setAttribute('src', base + '.mp4');
                             video.setAttribute('alt', media.getAttribute('alt') || '');
                             video.style.width = '100%';
-                            video.style.maxWidth = '520px';
-                            video.style.borderRadius = '10px';
+                            video.style.maxWidth = '100%';
+                            video.style.borderRadius = '0';
                             video.style.background = '#000';
                             video.style.display = 'block';
-                            video.style.marginBottom = '16px';
+                            video.style.margin = '0';
                             media.parentNode.replaceChild(video, media);
                         }
                     } else {
