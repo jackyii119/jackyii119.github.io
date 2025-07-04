@@ -49,7 +49,7 @@
             .step-gif, .step-video {
                 width: 100%;
                 margin: 0;
-                min-height: 60vh;
+                min-height: 70vh;
             }
             .desc {
                 font-size: 16px;
@@ -296,9 +296,9 @@
         <div class="timer-section">
             <div class="timer-title">热敷5分钟计时器</div>
             <div class="timer-display" id="timer5-display">05:00</div>
-            <button class="timer-btn" onclick="startTimer('timer5')" id="timer5-start">开始</button>
-            <button class="timer-btn" onclick="pauseTimer('timer5')" id="timer5-pause" disabled>暂停</button>
-            <button class="timer-btn" onclick="resetTimer('timer5')">重置</button>
+            <button class="timer-btn" onclick="startTimer('timer5', event)" id="timer5-start">开始</button>
+                <button class="timer-btn" onclick="pauseTimer('timer5', event)" id="timer5-pause" disabled>暂停</button>
+                <button class="timer-btn" onclick="resetTimer('timer5', event)">重置</button>
             <div class="timer-finished" id="timer5-finished" style="display:none;">时间到！</div>
         </div>
         <!-- 步骤3：单个GIF和说明 -->
@@ -328,9 +328,9 @@
             <div class="timer-section">
                 <div class="timer-title">采血90秒计时</div>
                 <div class="timer-display" id="timer1-display">01:30</div>
-                <button class="timer-btn" onclick="startTimer('timer1')" id="timer1-start">开始</button>
-                <button class="timer-btn" onclick="pauseTimer('timer1')" id="timer1-pause" disabled>暂停</button>
-                <button class="timer-btn" onclick="resetTimer('timer1')">重置</button>
+                <button class="timer-btn" onclick="startTimer('timer1', event)" id="timer1-start">开始</button>
+                <button class="timer-btn" onclick="pauseTimer('timer1', event)" id="timer1-pause" disabled>暂停</button>
+                <button class="timer-btn" onclick="resetTimer('timer1', event)">重置</button>
                 <div class="timer-finished" id="timer1-finished" style="display:none;">时间到！</div>
             </div>
         </div>
@@ -425,7 +425,8 @@
             document.getElementById(timer.displayId).textContent = `${min}:${sec}`;
         }
 
-        function startTimer(timerKey) {
+        function startTimer(timerKey, event) {
+            if (event) event.stopPropagation();
             const timer = timers[timerKey];
             if (timer.running) return;
             timer.running = true;
@@ -446,7 +447,8 @@
             }, 1000);
         }
 
-        function pauseTimer(timerKey) {
+        function pauseTimer(timerKey, event) {
+            if (event) event.stopPropagation();
             const timer = timers[timerKey];
             if (!timer.running) return;
             timer.running = false;
@@ -455,7 +457,8 @@
             document.getElementById(timer.pauseBtn).disabled = true;
         }
 
-        function resetTimer(timerKey) {
+        function resetTimer(timerKey, event) {
+            if (event) event.stopPropagation();
             const timer = timers[timerKey];
             timer.remaining = timer.duration;
             clearInterval(timer.interval);
