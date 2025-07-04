@@ -37,6 +37,41 @@
                 font-size: 16px;
             }
         }
+        .warning-section {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 16px;
+            margin-bottom: 24px;
+            border-radius: 8px;
+        }
+        .warning-title {
+            color: #856404;
+            font-size: 18px;
+            margin-bottom: 12px;
+            font-weight: bold;
+        }
+        .warning-list {
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        .warning-list li {
+            margin-bottom: 8px;
+            color: #721c24;
+        }
+        .confirm-btn {
+            background-color: #4f8cff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            display: block;
+            margin: 0 auto;
+        }
+        .confirm-btn:hover {
+            background-color: #3a75e6;
+        }
         h1 {
             text-align: center;
             color: #2d3a4b;
@@ -167,6 +202,17 @@
         <div style="text-align:right; margin-bottom: 16px;">
             <button id="toggle-mode-btn" class="timer-btn big-toggle-btn" onclick="toggleMode()">切换为视频版</button>
             <style id="mode-style"></style>
+        </div>
+        <div class="warning-section" id="warning-section">
+            <div class="warning-title">阅读注意事项</div>
+            <ul class="warning-list">
+                <li>12 周岁以下人群、凝血机制障碍人群或皮肤易过敏人群请勿使用本产品。</li>
+                <li>禁止海拔 2000 米以上地区使用此产品，否则可能导致危险。</li>
+                <li>皮肤松弛，缺血症，血液外循环障碍人群请谨慎使用该产品。</li>
+                <li>使用本产品前，应对皮肤表面进行清洁，并确保皮肤表面干燥，否则血液样品可能会受到影响。</li>
+                <li>若采血位置持续出血，应使用适当方法进行止血，并尽快就医。</li>
+            </ul>
+            <button class="confirm-btn" onclick="document.getElementById('warning-section').style.display='none'">已阅读</button>
         </div>
         <h1>末梢采血设备操作说明</h1>
         <!-- 步骤1：2个GIF和说明 -->
