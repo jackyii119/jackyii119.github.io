@@ -3,14 +3,20 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>末梢采血器操作说明</title>
     <style>
+        * {
+            box-sizing: border-box;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
             background: #f4f6fb;
-            margin: 0;
-            padding: 0;
         }
         div {
             margin: 0;
@@ -31,20 +37,40 @@
                 width: 100%;
                 margin: 0;
                 padding: 0;
+                min-height: 100vh;
+            }
+            h1 {
+                margin-bottom: 16px;
             }
             .step-title {
                 font-size: 20px;
+                margin-bottom: 12px;
             }
             .step-gif, .step-video {
                 width: 100%;
-                margin-left: 0;
-                margin-right: 0;
+                margin: 0;
+                min-height: 60vh;
             }
             .desc {
                 font-size: 16px;
                 width: 100%;
-                margin-left: 0;
-                margin-right: 0;
+                margin: 5px 0;
+            }
+            .step-section {
+                margin: 0;
+                padding: 5px 0;
+            }
+            .timer-section {
+                margin: 20px 0;
+                padding: 16px;
+            }
+            .sub-step {
+                margin-bottom: 5px;
+                padding-bottom: 0;
+            }
+            .warning-section {
+                margin-bottom: 16px;
+                padding: 12px;
             }
         }
         .warning-section {
