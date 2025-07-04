@@ -1,16 +1,19 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>末梢采血器操作说明</title>
+    <title>末梢采血设备操作说明</title>
     <style>
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
             background: #f4f6fb;
             margin: 0;
             padding: 0;
+        }
+        div {
+            margin: 10px;
+            padding: 0px;
         }
         .container {
             max-width: 700px;
@@ -106,16 +109,15 @@
         <div style="text-align:right; margin-bottom: 16px;">
             <button id="toggle-mode-btn" class="timer-btn big-toggle-btn" onclick="toggleMode()">切换为视频版</button>
         </div>
-        <h1>末梢采血器说明书</h1>
+        <h1>末梢采血设备操作说明</h1>
         <!-- 步骤1：2个GIF和说明 -->
         <div class="step-section">
-            <div class="step-title">步骤1：打开包装</div>
+            <div class="step-title">步骤1：采集准备</div>
             <img class="step-gif" src="step1_1.jpg" alt="步骤1-1演示">
             <div class="desc">打开包装，检查盒内物品
                 提前撕开酒精棉和创口贴</div>
             <img class="step-gif" src="step1_2.gif" alt="步骤1-2演示">
             <div class="desc">清洗双手或佩戴一次性医用手套</div>
-        </div>
         </div>
         <!-- 步骤2：2个GIF和说明 -->
         <div class="step-section">
@@ -149,7 +151,7 @@
             <div class="desc">将其紧贴上臂，管槽位置朝下</div>
             <!-- 采血90秒计时器 -->
             <img class="step-gif" src="step4_3.gif" alt="步骤4-3演示">
-            <div class="desc">采血管垂直插入管槽，针刺破胶塞声即表示采血开始，计时90S</div>
+            <div class="desc">采血管垂直插入管槽，针刺破胶塞即表示采血开始，计时90秒</div>
             <div class="timer-section">
                 <div class="timer-title">采血90秒计时</div>
                 <div class="timer-display" id="timer1-display">01:30</div>
@@ -174,7 +176,7 @@
             <img class="step-gif" src="step6_1.gif" alt="步骤6-1演示">
             <div class="desc">垂直向下取出采血管</div>
             <img class="step-gif" src="step6_2.gif" alt="步骤6-2演示">
-            <div class="desc">先胶塞朝下摇晃采血管，使血液与添加剂充分混合</div>
+            <div class="desc">胶塞朝下摇晃采血管，使血液与添加剂充分混合</div>
         </div>
         <!-- 步骤7：3个GIF和说明 -->
         <div class="step-section">
